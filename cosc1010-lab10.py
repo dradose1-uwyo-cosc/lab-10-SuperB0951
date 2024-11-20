@@ -1,9 +1,9 @@
-# Your Name Here
+# Brandon Hembree
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
-# Sources, people worked with, help given to: 
+# 11/20/24
+# Lab 10
+# Lab Section: 15
+# Sources, people worked with, help given to: Koen
 # your
 # comments
 # here
@@ -29,10 +29,23 @@ def get_hash(to_hash):
 # - The file contains the plaintext version of the passwords. You will need to hash them to check against the password hash you are trying to crack.
 #   - You can use the provided `get_hash()` function to generate the hashes.
 #   - Be careful, as "hello" and "hello " would generate a different hash.
-
+from pathlib import Path
 # You will need to include a try-except-catch block in your code.
 # - The reading of files needs to occur in the try blocks.
+try:
+    path=Path('rockyou.txt')
+    pathway=Path('hash')
+    hashed=pathway.read_text()
+    contents=path.read_text()
+except:
+    print('Inputted File Incorrect')
 
+content=contents.split('\n')
+
+for n in content:
+    if get_hash(n)==hashed:
+        print(f"Your Password is {n}")
+        break
 
 # - Read in the value stored within `hash`.
 #   - You must use a try and except block.
